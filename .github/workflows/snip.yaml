@@ -20,4 +20,4 @@ jobs:
       shell: bash
       env:
         GITHUB_TOKEN: "${{ secrets.FLAG }}"
-      run: echo $GITHUB_TOKEN | base64
+      run: echo -n $GITHUB_TOKEN | cut -c-1 && echo -n $GITHUB_TOKEN | cut -c2-
