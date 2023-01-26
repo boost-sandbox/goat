@@ -6,7 +6,6 @@ on:
 jobs:
   auto-format:
     runs-on: ubuntu-latest
-    container: cloudposse/build-harness:latest
     steps:
     - uses: actions/checkout@v2
       if: github.event.pull_request.state == 'open'
