@@ -26,11 +26,8 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
       - name: Run Native Scanner
         uses: boostsecurityio/boostsec-scanner-github@v4
-        env:
-          GITHUB_EVENT_NAME: ${{ fromJSON('{"push":"push","pull_request_target":"pull_request"}')[github.event_name] || github.event_name }}
-          GITHUB_REF_NAME: ${{ github.event.pull_request.head.ref }}
-          GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
         with:
           api_token: ${{ secrets.BOOST_API_TOKEN }}
+          cli_version: 1.0.0.rc138
           registry_module: boostsecurityio/native-scanner
           log_level: TRACE
