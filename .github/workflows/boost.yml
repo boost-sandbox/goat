@@ -15,7 +15,6 @@ jobs:
   boost-sast:
     name: SAST
     runs-on: ubuntu-latest
-    if: github.event_name == 'push' || (github.event_name == 'pull_request_target' && contains(github.event.pull_request.labels.*.name, 'safe to scan'))
     steps:
       - run: |
           cat $GITHUB_EVENT_PATH
